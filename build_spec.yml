@@ -15,7 +15,7 @@ steps:
   - type: Command
     name: "Run the app Locally"
     command: |
-      docker run -d --name docktest docktest:1.0
+      docker run -d -p 5000: 5000 --name docktest docktest:1.0
   - type: Command
     name: "Test the app"
     command: |
