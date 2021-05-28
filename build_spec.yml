@@ -19,7 +19,7 @@ steps:
   - type: Command
     name: "Test the app"
     command: |
-      curl localhost:5000 2>&1 >> docktest-result.txt
+      curl -s localhost:5000 > docktest-result.txt
   - type: Command
     name: "Shutdown the app"
     command: |
