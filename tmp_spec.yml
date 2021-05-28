@@ -17,6 +17,10 @@ steps:
     command: |
       docker run -d -p 5000:5000 --name docktest docktest:1.0
   - type: Command
+    name: "Test the app Locally"
+    command: |
+      curl -v > docktest-result.txt
+  - type: Command
     name: "Shutdown the app"
     command: |
       docker stop docktest >> docktest-result.txt
