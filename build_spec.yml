@@ -11,7 +11,7 @@ steps:
   - type: Command
     name: "PreReq install"
     command: |
-      apt-get install curl -y
+      yum -y install curl
   - type: Command
     name: "Dockerize"
     command: |
