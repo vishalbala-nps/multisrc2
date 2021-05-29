@@ -6,6 +6,7 @@ shell: bash
 env:
   variables:
     "testEnv" : "Hello Bala, This is a test variable!!!"
+    "container_ip" : "1.1.1.1"
 
 steps:
   - type: Command
@@ -20,6 +21,9 @@ steps:
     name: "Test the app Locally"
     command: |
       curl --version > docktest-result.txt
+      container_ip=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docktest)
+      echo "echo Container IP: $container_ip" >> docktest-result.txt
+      curl $container_ip:5000 >> docktest-result.txt
   - type: Command
     name: "Shutdown the app"
     command: |
