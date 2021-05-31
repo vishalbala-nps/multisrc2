@@ -23,6 +23,8 @@ steps:
       curl --version > docktest-result.txt
       container_ip=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docktest)
       echo "echo Container IP: $container_ip" >> docktest-result.txt
+      sleep 10
+      curl localhost:5000 >> docktest-result.txt
   - type: Command
     name: "Shutdown the app"
     command: |
