@@ -25,6 +25,7 @@ steps:
     command: |
       docker stop docktest >> docktest-result.txt
       docker rm docktest >> docktest-result.txt
+      date >> docktest-result.txt
 artifacts:
   - name: docktest-result
     type: BINARY
