@@ -6,6 +6,8 @@ shell: bash
 env:
   variables:
     "testEnv" : "Hello Bala, This is a test variable!!!"
+  exportedVariables:
+    - major_number
 
 steps:
   - type: Command
@@ -26,8 +28,8 @@ steps:
       docker stop docktest >> docktest-result.txt
       docker rm docktest >> docktest-result.txt
       date >> docktest-result.txt
-artifacts:
+      export major_number=10.0
+outputArtifacts:
   - name: docktest-result
     type: BINARY
-    files:
-      - docktest-result.txt
+    location: docktest-result.txt
