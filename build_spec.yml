@@ -23,11 +23,11 @@ steps:
   - type: Command
     name: "Shutdown the app"
     command: |
-      docker stop docktest >> docktest-result.txt
-      docker rm docktest >> docktest-result.txt
-      date >> docktest-result.txt
+      docker stop docktest >> multisrc1.txt
+      docker rm docktest >> multisrc1.txt
+      date >> multisrc1.txt
 
 outputArtifacts:
-  - name: docktest-result
+  - name: multisrc1
     type: BINARY
-    location: docktest-result.txt
+    location: multisrc1.txt
